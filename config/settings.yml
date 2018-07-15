@@ -1,0 +1,14 @@
+plugins:
+  procourse_community_feedback_enabled:
+    default: true
+    client: true
+  procourse_community_feedback_emoji_list:
+    client: true
+    type: list
+    default: 'heart_eyes|smiley|neutral_face|worried|cry'
+    choices:
+      - heart_eyes
+      - smiley
+      - neutral_face
+      - worried
+      - cry

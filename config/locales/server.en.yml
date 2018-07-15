@@ -1,0 +1,4 @@
+en:
+  site_settings:
+    procourse_community_feedback_enabled: "Enable Procourse Community Feedback Plugin"
+    procourse_community_feedback_emoji_list: "List of emojis to be used in the feedback modal (in order)"
