@@ -1,0 +1,7 @@
+en:
+  js:
+    procourse_community_feedback:
+      feedback_button:
+        title: "Please add Feedback"
+      feedback_modal:
+        title: "Please add your feedback"  

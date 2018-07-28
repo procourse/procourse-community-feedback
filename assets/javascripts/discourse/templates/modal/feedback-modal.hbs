@@ -1,0 +1,9 @@
+{{#d-modal-body title="procourse_community_feedback.feedback_modal.title"}}
+  hey there
+  {{submit-feedback}}
+{{/d-modal-body}}
+
+<div class='modal-footer'>
+  {{d-button class="btn-primary" action="submitFeedback" label="composer.modal_ok"}}
+  {{d-modal-cancel close=(action "closeModal")}}
+</div>

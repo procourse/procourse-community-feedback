@@ -1,0 +1,7 @@
+{{#if customEmojis.length}}
+  <div class='section-group'>
+    {{#each customEmojis as |emoji|}}
+      <button style="background-url: url("{{emoji.src}}")" type="button" class="emoji" tabindex="-1" title="{{emoji.code}}"></button>
+    {{/each}}
+  </div>
+{{/if}}
