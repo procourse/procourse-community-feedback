@@ -1,9 +1,12 @@
+import { on } from "ember-addons/ember-computed-decorators";
 import { extendedEmojiList } from "pretty-text/emoji";
-
-const customEmojis = _.map(_.keys(extendedEmojiList()), code => {
-  return { code, src: emojiUrlFor(code) };
-});
+import { emojiUrlFor } from "discourse/lib/text";
+import { findRawTemplate } from "discourse/lib/raw-templates";
 
 export default Ember.Component.extend({
 
+  @on("didInsertElement")
+  setEmojies() {
+    this.set();
+  },
 });
