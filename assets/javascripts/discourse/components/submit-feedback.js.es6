@@ -7,6 +7,11 @@ export default Ember.Component.extend({
 
   @on("didInsertElement")
   setEmojies() {
-    this.set();
+    // this.set();
+    console.log("submit");
   },
+
+    _bindEmojiClick(){
+    console.log("emoji clicked");
+  }
 });
