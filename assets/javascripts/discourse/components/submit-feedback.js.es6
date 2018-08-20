@@ -4,14 +4,18 @@ import { emojiUrlFor } from "discourse/lib/text";
 import { findRawTemplate } from "discourse/lib/raw-templates";
 
 export default Ember.Component.extend({
+  selected : null,
 
   @on("didInsertElement")
-  setEmojies() {
-    // this.set();
-    console.log("submit");
+  setBind() {
+    const $emojiButtons = $(".emoji")
+    $emojiButtons.on('click',(e) => {
+      const clicked_title = e.currentTarget.title;
+      if (this.selected) {
+          $("[title='"+this.selected+"']").css("background-color","transparent");
+      }
+      $("[title='"+clicked_title+"']").css("background-color","lightblue");
+      this.selected = clicked_title;
+    });
   },
-
-    _bindEmojiClick(){
-    console.log("emoji clicked");
-  }
 });
