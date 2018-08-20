@@ -5,16 +5,18 @@ import { findRawTemplate } from "discourse/lib/raw-templates";
 
 export default Ember.Component.extend({
   selected : null,
+  selected_btn : null,
 
   @on("didInsertElement")
   setBind() {
     const $emojiButtons = $(".emoji")
     $emojiButtons.on('click',(e) => {
       const clicked_title = e.currentTarget.title;
-      if (this.selected) {
-          $("[title='"+this.selected+"']").css("background-color","transparent");
+      if (this.selected_btn) {
+          this.selected_btn.css("background-color","transparent");
       }
-      $("[title='"+clicked_title+"']").css("background-color","lightblue");
+      this.selected_btn = $("[title='"+clicked_title+"']");
+      this.selected_btn.css("background-color","lightblue");
       this.selected = clicked_title;
     });
   },
