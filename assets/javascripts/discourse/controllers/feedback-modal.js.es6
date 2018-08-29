@@ -2,10 +2,11 @@ import ModalFunctionality from "discourse/mixins/modal-functionality";
 
 export default Ember.Controller.extend(ModalFunctionality, {
   model: null,
+  selected: null,
 
   actions: {
     submitFeedback() {
-      console.log("Submitted");
+        console.log(this.get("selected"));
     }
   }
 });

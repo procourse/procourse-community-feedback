@@ -9,4 +9,13 @@ enabled_site_setting :procourse_community_feedback_enabled
 register_asset 'stylesheets/procourse-feedback.scss'
 
 after_initialize do
+  load File.expand_path('../controllers/feedback_controller.rb',__FILE__)
+
+  DiscourseFeedback::Engine.routes.draw do
+    get "/post_feedback" => "feedback#post_feedback"
+  end
+
+  Discourse::Application.routes.prepend do
+    mount ::DiscourseFeedback::Engine, at: "/feedback"
+  end
 end

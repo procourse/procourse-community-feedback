@@ -18,6 +18,17 @@ export default Ember.Component.extend({
       this.selected_btn = $("[title='"+clicked_title+"']");
       this.selected_btn.css("background-color","lightblue");
       this.selected = clicked_title;
+      this.set("selected",clicked_title);
     });
   },
+
+  actions: {
+    submitFeedback() {
+      //Create a topic
+
+      //Although this does the work, component is tightly coupled with the model functionality.
+      //This issue will be addressed later
+      this.parentView.parentView.attrs.closeModal();
+    }
+  }
 });
