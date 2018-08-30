@@ -9,6 +9,14 @@ enabled_site_setting :procourse_community_feedback_enabled
 register_asset 'stylesheets/procourse-feedback.scss'
 
 after_initialize do
+
+  module ::DiscourseFeedback
+    class Engine < ::Rails::Engine
+      engine_name 'discourse_feedback'
+      isolate_namespace DiscourseFeedback
+    end
+  end
+
   load File.expand_path('../controllers/feedback_controller.rb',__FILE__)
 
   DiscourseFeedback::Engine.routes.draw do
