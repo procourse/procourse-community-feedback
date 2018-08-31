@@ -10,6 +10,14 @@ register_asset 'stylesheets/procourse-feedback.scss'
 
 after_initialize do
 
+  #Check if feedback category exists
+  feedback_category_id = ::PluginStore.get('discourse-feedback-plugin','feedback_category_id')
+
+  if feedback_category_id.blank?
+    #seed the category
+    
+  end
+
   module ::DiscourseFeedback
     class Engine < ::Rails::Engine
       engine_name 'discourse_feedback'
