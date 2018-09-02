@@ -29,6 +29,7 @@ export default Ember.Component.extend({
   actions: {
     submitFeedback() {
       const selected_emoji = this.get("selected")
+      console.log(selected_emoji);
       //Create a topic
       ajax(`/feedback/post_feedback`,
         {

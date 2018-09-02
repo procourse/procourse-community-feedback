@@ -10,12 +10,10 @@ register_asset 'stylesheets/procourse-feedback.scss'
 
 after_initialize do
 
-  #Check if feedback category exists
-  feedback_category_id = ::PluginStore.get('discourse-feedback-plugin','feedback_category_id')
+  feedback_count = ::PluginStore.get('discourse-feedback-plugin','feedback_count')
 
-  if feedback_category_id.blank?
-    #seed the category
-    
+  if feedback_count.blank?
+    ::PluginStore.set('discourse-feedback-plugin','feedback_count',0)
   end
 
   module ::DiscourseFeedback
