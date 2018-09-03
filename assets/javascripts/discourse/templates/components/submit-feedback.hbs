@@ -1,4 +1,4 @@
-<div class="emoji-mount">
+<div class="feedback-emoji-mount">
   <button type="button" class="emoji " title="heart_eyes" style="background-image: url(&quot;/images/emoji/twitter/heart_eyes.png?v=5&quot;);"></button>
   <button type="button" class="emoji " title="smiley" style="background-image: url(&quot;/images/emoji/twitter/smiley.png?v=5&quot;);"></button>
   <button type="button" class="emoji " title="neutral_face" style="background-image: url(&quot;/images/emoji/twitter/neutral_face.png?v=5&quot;);"></button>
@@ -6,6 +6,10 @@
   <button type="button" class="emoji " title="frowning_face" style="background-image: url(&quot;/images/emoji/twitter/frowning_face.png?v=5&quot;);"></button>
 </div>
 
-<div class='modal-footer'>
+<div class="feedback-text-area-wrapper">
+  {{expanding-text-area value=feedback-description}}
+</div>
+
+<div class='modal-footer feedback-modal-footer'>
   {{d-button class="btn-primary" action="submitFeedback" disabled=disable_btn label="composer.modal_ok"}}
 </div>

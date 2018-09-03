@@ -1,19 +1,43 @@
-.emoji-mount{
-  button{
-    display: inline-block;
-    background-color: #fff;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 0;
-    background-size: 20px 20px;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    height: 20px;
-    border: 0;
-    vertical-align: top;
-    width: 20px;
-    outline: none;
-    padding: 3px;
-    margin: 2px;
+.feedback-modal-footer{
+  border-top: 0px;
+  padding-left: 0px;
+}
+
+.user-feedback-modal {
+  text-align: center;
+
+  .feedback-emoji-mount{
+    button{
+      display: inline-block;
+      background-color: #fff;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 0;
+      background-size: 40px 40px;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+      height: 50px;
+      width: 50px;
+      border: 0;
+      vertical-align: top;
+      outline: none;
+      padding: 3px;
+      margin: 2px;
+      -webkit-transition: background-size 0.25s; /* Safari */
+      transition: background-size 0.25s;
+    }
+
+    button:hover{
+      background-size: 50px 50px;
+    }
+
+    input, textarea {
+        margin-top: 4%;
+    }
+  }
+
+  .feedback-text-area-wrapper{
+    display: none;
+    margin-top: 2%;
   }
 }

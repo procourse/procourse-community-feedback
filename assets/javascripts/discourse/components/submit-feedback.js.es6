@@ -23,19 +23,25 @@ export default Ember.Component.extend({
       this.selected = clicked_title;
       this.set("selected",clicked_title);
       this.set("disable_btn", false);
+      // $(".feedback-text-area-wrapper").css("display","block");
+      console.log($(".user-feedback-modal").siblings()[0]);
+      $(".feedback-text-area-wrapper").fadeIn(800);
+
     });
   },
 
   actions: {
     submitFeedback() {
-      const selected_emoji = this.get("selected")
-      console.log(selected_emoji);
+      const selected_emoji = this.get("selected");
+      const feedback_description = this.get("feedback-description");
+
       //Create a topic
       ajax(`/feedback/post_feedback`,
         {
           type: "GET",
           data: {
             selected_emoji: selected_emoji,
+            feedback_description: feedback_description
           }
         }).then(json => {
                       console.log("Done");
