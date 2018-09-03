@@ -9,6 +9,7 @@ export default Ember.Component.extend({
   selected : null,
   selected_btn : null,
   disable_btn: true,
+  feedback_textarea_placeholder: Discourse.SiteSettings.procourse_community_feedback_textarea_placeholder,
 
   @on("didInsertElement")
   setBind() {
@@ -23,10 +24,7 @@ export default Ember.Component.extend({
       this.selected = clicked_title;
       this.set("selected",clicked_title);
       this.set("disable_btn", false);
-      // $(".feedback-text-area-wrapper").css("display","block");
-      console.log($(".user-feedback-modal").siblings()[0]);
       $(".feedback-text-area-wrapper").fadeIn(800);
-
     });
   },
 

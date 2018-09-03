@@ -1,6 +1,8 @@
 class DiscourseFeedback::FeedbackController < ApplicationController
   def post_feedback
-    if !current_user.nil? && !params[:selected_emoji].nil? && !params[:feedback_description] 
+    feedback_category = SiteSetting.procourse_community_feedback_category
+
+    if !current_user.nil? && !params[:selected_emoji].nil? && !feedback_category.blank?
       feedback_count = ::PluginStore.get('discourse-feedback-plugin','feedback_count')
       feedback_count += 1
       ::PluginStore.set('discourse-feedback-plugin', 'feedback_count', feedback_count)
@@ -8,11 +10,17 @@ class DiscourseFeedback::FeedbackController < ApplicationController
       selected_emoji = params[:selected_emoji]
       feedback_description = params[:feedback_description]
 
+      if feedback_description.blank?
+        feedback_raw = "**Feedback Emoji**: :#{selected_emoji}:"
+      else
+        feedback_raw = "**Feedback Emoji**: :#{selected_emoji}: \n**Feedback**: #{feedback_description}"
+      end
+
       PostCreator.create(
           current_user,
           title: "Discourse Feedback Plugin Results - #{feedback_count}",
-          raw: "Feedback Emoji: :#{selected_emoji}: \nFeedback: #{feedback_description}",
-          category: "user-feedback",
+          raw: feedback_raw,
+          category: feedback_category,
           skip_validations: true
         )
     end
