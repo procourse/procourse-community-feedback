@@ -1,8 +1,11 @@
 class DiscourseFeedback::FeedbackController < ApplicationController
+
+  requires_login
+
   def post_feedback
     feedback_category = SiteSetting.procourse_community_feedback_category
 
-    if !current_user.nil? && !params[:selected_emoji].nil? && !feedback_category.blank?
+    if !params[:selected_emoji].nil? && !feedback_category.blank?
       feedback_count = ::PluginStore.get('discourse-feedback-plugin','feedback_count')
       feedback_count += 1
       ::PluginStore.set('discourse-feedback-plugin', 'feedback_count', feedback_count)
